@@ -26,28 +26,28 @@ describe("Header", () => {
     render(<Header />);
 
     expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("Todos")).toBeInTheDocument();
-    expect(screen.getByText("Guide")).toBeInTheDocument();
-    expect(screen.getByText("Login")).toBeInTheDocument();
+    expect(screen.getByText("Take Survey")).toBeInTheDocument();
+    expect(screen.getByText("My Results")).toBeInTheDocument();
+    expect(screen.getByText("About")).toBeInTheDocument();
   });
 
   it("renders links with correct hrefs", () => {
     render(<Header />);
 
     expect(screen.getByText("Home").closest("a")).toHaveAttribute("href", "/");
-    expect(screen.getByText("Todos").closest("a")).toHaveAttribute("href", "/todos");
-    expect(screen.getByText("Guide").closest("a")).toHaveAttribute("href", "/guide");
-    expect(screen.getByText("Login").closest("a")).toHaveAttribute("href", "/login");
+    expect(screen.getByText("Take Survey").closest("a")).toHaveAttribute("href", "/survey");
+    expect(screen.getByText("My Results").closest("a")).toHaveAttribute("href", "/recommendations");
+    expect(screen.getByText("About").closest("a")).toHaveAttribute("href", "/about");
   });
 
   it("applies active styles to the current route link", () => {
-    mockUsePathname.mockReturnValue("/todos");
+    mockUsePathname.mockReturnValue("/survey");
     render(<Header />);
 
-    const todosLink = screen.getByText("Todos").closest("a");
+    const surveyLink = screen.getByText("Take Survey").closest("a");
     const homeLink = screen.getByText("Home").closest("a");
 
-    expect(todosLink?.className).toContain("underline");
+    expect(surveyLink?.className).toContain("underline");
     expect(homeLink?.className).not.toContain("underline");
   });
 
@@ -55,11 +55,11 @@ describe("Header", () => {
     mockUsePathname.mockReturnValue("/");
     render(<Header />);
 
-    const todosLink = screen.getByText("Todos").closest("a");
-    const guideLink = screen.getByText("Guide").closest("a");
+    const surveyLink = screen.getByText("Take Survey").closest("a");
+    const aboutLink = screen.getByText("About").closest("a");
 
-    expect(todosLink?.className).toContain("text-black/50");
-    expect(guideLink?.className).toContain("text-black/50");
+    expect(surveyLink?.className).toContain("text-black/50");
+    expect(aboutLink?.className).toContain("text-black/50");
   });
 
   it("renders a header element", () => {

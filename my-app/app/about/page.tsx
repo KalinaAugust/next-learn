@@ -1,25 +1,27 @@
-export default function AboutUs() {
+export default function About() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-3xl flex-col gap-10 py-16 px-16 bg-white dark:bg-black">
         <h1 className="text-4xl font-semibold tracking-tight text-black dark:text-zinc-50">
-          About Us
+          About Health Advisor
         </h1>
 
         <section className="flex flex-col gap-3">
           <h2 className="text-xl font-medium text-black dark:text-zinc-50">Who we are</h2>
           <p className="text-zinc-600 dark:text-zinc-400 leading-7">
-            We are a passionate team of developers building modern web applications with
-            Next.js, React, and Tailwind CSS. Our goal is to create fast, accessible, and
-            beautiful products that solve real problems.
+            Health Advisor is a digital wellness tool that helps people understand their health risks
+            and lifestyle habits. By completing a short survey, users receive evidence-based
+            recommendations tailored to their individual profile.
           </p>
         </section>
 
         <section className="flex flex-col gap-3">
           <h2 className="text-xl font-medium text-black dark:text-zinc-50">Our mission</h2>
           <p className="text-zinc-600 dark:text-zinc-400 leading-7">
-            To deliver high-quality software that empowers users and businesses alike.
-            We believe in open collaboration, clean code, and continuous improvement.
+            To make personalised health guidance accessible to everyone. We believe that small,
+            informed changes in daily habits can have a profound impact on long-term wellbeing.
+            Our recommendations are grounded in current medical guidelines and are regularly
+            reviewed by health professionals.
           </p>
         </section>
 
@@ -27,9 +29,9 @@ export default function AboutUs() {
           <h2 className="text-xl font-medium text-black dark:text-zinc-50">The team</h2>
           <ul className="flex flex-col gap-4">
             {[
-              { name: "Alice Johnson", role: "Lead Engineer" },
-              { name: "Bob Smith", role: "Frontend Developer" },
-              { name: "Carol White", role: "UX Designer" },
+              { name: "Dr. Sarah Lee", role: "Medical Content Reviewer" },
+              { name: "Marcus Chen", role: "Full-Stack Engineer" },
+              { name: "Elena Russo", role: "Product Designer" },
             ].map(({ name, role }) => (
               <li
                 key={name}
@@ -48,10 +50,19 @@ export default function AboutUs() {
         </section>
 
         <section className="flex flex-col gap-3">
+          <h2 className="text-xl font-medium text-black dark:text-zinc-50">Disclaimer</h2>
+          <p className="text-zinc-600 dark:text-zinc-400 leading-7">
+            Health Advisor provides general wellness information only and is not a substitute for
+            professional medical advice, diagnosis, or treatment. Always consult a qualified
+            healthcare provider with any questions about your health.
+          </p>
+        </section>
+
+        <section className="flex flex-col gap-3">
           <h2 className="text-xl font-medium text-black dark:text-zinc-50">Contact</h2>
           <p className="text-zinc-600 dark:text-zinc-400 leading-7">
-            Have questions or want to work with us? Reach out at{" "}
-            <span className="font-medium text-black dark:text-zinc-50">hello@example.com</span>.
+            Have questions or feedback?{" "}
+            <span className="font-medium text-black dark:text-zinc-50">hello@health-advisor.app</span>
           </p>
         </section>
       </main>
