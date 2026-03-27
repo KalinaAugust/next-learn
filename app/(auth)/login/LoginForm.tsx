@@ -4,9 +4,9 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import Button from "@/components/Button";
 
-const inputClass =
-  "w-full rounded border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-brand";
+const inputClass = "w-full rounded border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-brand";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -28,7 +28,7 @@ export default function LoginForm() {
     });
 
     if (result?.error) {
-      setError("Неверный email или пароль.");
+      setError("Invalid email or password.");
       setPending(false);
     } else {
       router.push("/");
@@ -39,7 +39,7 @@ export default function LoginForm() {
     <div className="space-y-4">
       {registered && (
         <p className="rounded bg-success-bg px-3 py-2 text-sm text-success">
-          Аккаунт создан. Войдите.
+          Account created. Please sign in.
         </p>
       )}
       {error && (
@@ -54,7 +54,7 @@ export default function LoginForm() {
           <input id="email" name="email" type="email" className={inputClass} required />
         </div>
         <div className="space-y-1">
-          <label htmlFor="password" className="block text-sm font-medium text-foreground">Пароль</label>
+          <label htmlFor="password" className="block text-sm font-medium text-foreground">Password</label>
           <input
             id="password"
             name="password"
@@ -63,36 +63,35 @@ export default function LoginForm() {
             required
           />
         </div>
-        <button
-          type="submit"
-          disabled={pending}
-          className="w-full rounded-full bg-brand py-2.5 text-sm font-medium text-background transition-colors hover:bg-brand-hover disabled:opacity-50"
+        <Button
+            type="submit"
+            disabled={pending}
         >
-          {pending ? "Вход..." : "Войти"}
-        </button>
+          {pending ? "Loading..." : "Login"}
+        </Button>
       </form>
 
       <div className="relative flex items-center gap-3 py-1">
         <div className="flex-1 border-t border-border" />
-        <span className="text-xs text-subtle">или</span>
+        <span className="text-xs text-subtle">OR</span>
         <div className="flex-1 border-t border-border" />
       </div>
 
-      <button
-        type="button"
-        onClick={() => signIn("google", { callbackUrl: "/" })}
-        className="w-full rounded-full border border-border py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-brand-light"
+      <Button
+          type="button"
+          color="light"
+          onClick={() =>signIn("google", { callbackUrl: "/" })}
       >
-        Войти через Google
-      </button>
+          Sign in with Google
+      </Button>
 
       <p className="text-center text-sm text-muted">
-        Нет аккаунта?{" "}
+        Don&#39;t have an account?&nbsp;
         <Link
-          href="/register"
-          className="text-foreground underline underline-offset-4"
+            href="/register"
+            className="text-foreground underline underline-offset-4"
         >
-          Зарегистрироваться
+          Sign up
         </Link>
       </p>
     </div>

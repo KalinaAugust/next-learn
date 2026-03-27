@@ -10,14 +10,14 @@ const labelClass = "block text-sm font-medium text-foreground";
 const errorClass = "text-xs text-red-600";
 
 const initialForm: SurveyData = {
-  age: 0,
-  sex: "",
-  heightCm: 0,
-  weightKg: 0,
-  activityLevel: "",
-  smoking: false,
-  sleepHours: 0,
-  primaryConcern: "",
+  age: 52,
+  sex: "male",
+  heightCm: 170,
+  weightKg: 95,
+  activityLevel: "sedentary",
+  smoking: true,
+  sleepHours: 5,
+  primaryConcern: "heart",
 };
 
 export default function SurveyPage() {
@@ -48,11 +48,11 @@ export default function SurveyPage() {
     e.preventDefault();
     if (!validate()) return;
     sessionStorage.setItem("healthSurveyData", JSON.stringify(form));
-    router.push("/recommendations");
+    router.push("/profile");
   }
 
   return (
-    <main className="flex flex-col flex-1 items-center bg-background py-12 px-4">
+    <main className="flex flex-col flex-1 items-center py-12 px-4">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-lg space-y-5 rounded-xl border border-border bg-surface p-8"

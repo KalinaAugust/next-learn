@@ -1,7 +1,7 @@
 export default function About() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-background font-sans">
-      <main className="flex flex-1 w-full max-w-3xl flex-col gap-10 py-16 px-16 bg-background">
+    <div className="flex flex-col flex-1 items-center justify-center font-sans">
+      <main className="flex flex-1 w-full max-w-3xl flex-col gap-10 py-16 px-16">
         <h1 className="text-4xl font-semibold tracking-tight text-foreground">
           About Health Advisor
         </h1>
