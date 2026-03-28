@@ -1,34 +1,36 @@
 import Image from "next/image";
+import { getDictionary, hasLocale, type Locale } from "../dictionaries";
+import { notFound } from "next/navigation";
 
-export default function About() {
+export default async function About({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const dict = await getDictionary(lang as Locale);
+  const d = dict.about;
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
       <main className="flex flex-1 w-full max-w-3xl flex-col py-16 px-16">
         <h1 className="text-4xl font-semibold tracking-tight text-foreground">
-          About Health Advisor
+          {d.title}
         </h1>
 
         <section className="flex flex-col gap-3">
-          <h2 className="mt-6 text-xl font-medium text-foreground">Who we are</h2>
-          <p className="text-muted leading-7">
-            Health Advisor is a digital wellness tool that helps people understand their health risks
-            and lifestyle habits. By completing a short survey, users receive evidence-based
-            recommendations tailored to their individual profile.
-          </p>
+          <h2 className="mt-6 text-xl font-medium text-foreground">{d.whoWeAre.title}</h2>
+          <p className="text-muted leading-7">{d.whoWeAre.body}</p>
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="mt-6 text-xl font-medium text-foreground">Our mission</h2>
-          <p className="text-muted leading-7">
-            To make personalised health guidance accessible to everyone. We believe that small,
-            informed changes in daily habits can have a profound impact on long-term wellbeing.
-            Our recommendations are grounded in current medical guidelines and are regularly
-            reviewed by health professionals.
-          </p>
+          <h2 className="mt-6 text-xl font-medium text-foreground">{d.mission.title}</h2>
+          <p className="text-muted leading-7">{d.mission.body}</p>
         </section>
 
         <section className="flex flex-col gap-4">
-          <h2 className="mt-6 text-xl font-medium text-foreground">The team</h2>
+          <h2 className="mt-6 text-xl font-medium text-foreground">{d.team.title}</h2>
           <ul className="flex flex-col gap-4">
             {[
               { name: "Dr. Sanya Muha", role: "Drugs Reviewer", photo: "/images/team/member1.jpg" },
@@ -52,18 +54,14 @@ export default function About() {
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="mt-6 text-xl font-medium text-foreground">Disclaimer</h2>
-          <p className="text-muted leading-7">
-            Health Advisor provides general wellness information only and is not a substitute for
-            professional medical advice, diagnosis, or treatment. Always consult a qualified
-            healthcare provider with any questions about your health.
-          </p>
+          <h2 className="mt-6 text-xl font-medium text-foreground">{d.disclaimer.title}</h2>
+          <p className="text-muted leading-7">{d.disclaimer.body}</p>
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="mt-6 text-xl font-medium text-foreground">Contact</h2>
+          <h2 className="mt-6 text-xl font-medium text-foreground">{d.contact.title}</h2>
           <p className="text-muted leading-7">
-            Have questions or feedback?{" "}
+            {d.contact.body}{" "}
             <a
               href="mailto:hello@health-advisor.app"
               className="font-medium text-foreground underline underline-offset-4"

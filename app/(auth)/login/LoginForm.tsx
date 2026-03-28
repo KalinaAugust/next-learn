@@ -5,10 +5,16 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import Button from "@/components/Button";
+import type { Dictionary } from "@/app/[lang]/dictionaries";
 
 const inputClass = "w-full rounded border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-brand";
 
-export default function LoginForm() {
+interface LoginFormProps {
+  dict: Dictionary["login"];
+  lang: string;
+}
+
+export default function LoginForm({ dict, lang }: LoginFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const registered = searchParams.get("registered");
@@ -28,10 +34,10 @@ export default function LoginForm() {
     });
 
     if (result?.error) {
-      setError("Invalid email or password.");
+      setError(dict.error);
       setPending(false);
     } else {
-      router.push("/");
+      router.push(`/${lang}`);
     }
   }
 
@@ -39,7 +45,7 @@ export default function LoginForm() {
     <div className="space-y-4">
       {registered && (
         <p className="rounded bg-success-bg px-3 py-2 text-sm text-success">
-          Account created. Please sign in.
+          {dict.registered}
         </p>
       )}
       {error && (
@@ -50,11 +56,11 @@ export default function LoginForm() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-1">
-          <label htmlFor="email" className="block text-sm font-medium text-foreground">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium text-foreground">{dict.email}</label>
           <input id="email" name="email" type="email" className={inputClass} required />
         </div>
         <div className="space-y-1">
-          <label htmlFor="password" className="block text-sm font-medium text-foreground">Password</label>
+          <label htmlFor="password" className="block text-sm font-medium text-foreground">{dict.password}</label>
           <input
             id="password"
             name="password"
@@ -63,35 +69,32 @@ export default function LoginForm() {
             required
           />
         </div>
-        <Button
-            type="submit"
-            disabled={pending}
-        >
-          {pending ? "Loading..." : "Login"}
+        <Button type="submit" disabled={pending}>
+          {pending ? dict.loading : dict.submit}
         </Button>
       </form>
 
       <div className="relative flex items-center gap-3 py-1">
         <div className="flex-1 border-t border-border" />
-        <span className="text-xs text-subtle">OR</span>
+        <span className="text-xs text-subtle">{dict.or}</span>
         <div className="flex-1 border-t border-border" />
       </div>
 
       <Button
-          type="button"
-          color="light"
-          onClick={() =>signIn("google", { callbackUrl: "/" })}
+        type="button"
+        color="light"
+        onClick={() => signIn("google", { callbackUrl: `/${lang}` })}
       >
-          Sign in with Google
+        {dict.google}
       </Button>
 
       <p className="text-center text-sm text-muted">
-        Don&#39;t have an account?&nbsp;
+        {dict.noAccount}&nbsp;
         <Link
-            href="/register"
-            className="text-foreground underline underline-offset-4"
+          href={`/${lang}/register`}
+          className="text-foreground underline underline-offset-4"
         >
-          Sign up
+          {dict.signUp}
         </Link>
       </p>
     </div>

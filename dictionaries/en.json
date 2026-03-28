@@ -1,0 +1,294 @@
+{
+  "nav": {
+    "survey": "Take Survey",
+    "about": "About",
+    "profile": "Profile",
+    "login": "Login",
+    "homeAriaLabel": "Home"
+  },
+  "home": {
+    "title": "Your Personal Health Advisor",
+    "subtitle": "Answer a few questions about your health and lifestyle to receive personalized recommendations tailored to your condition.",
+    "cta": "Take the Survey",
+    "footer": "© {{year}} Health Advisor. All rights reserved."
+  },
+  "survey": {
+    "title": "Health Survey",
+    "subtitle": "Fill in your details below to receive personalised health recommendations.",
+    "age": "Age",
+    "sex": "Biological sex",
+    "sexOptions": {
+      "placeholder": "Select…",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other / Prefer not to say"
+    },
+    "heightCm": "Height (cm)",
+    "weightKg": "Weight (kg)",
+    "activityLevel": "Activity level",
+    "activityOptions": {
+      "placeholder": "Select…",
+      "sedentary": "Sedentary (little or no exercise)",
+      "light": "Light (1–3 days/week)",
+      "moderate": "Moderate (3–5 days/week)",
+      "active": "Active (6–7 days/week)"
+    },
+    "smoking": "Do you smoke?",
+    "smokingOptions": {
+      "no": "No",
+      "yes": "Yes"
+    },
+    "sleepHours": "Average sleep (hours/night)",
+    "primaryConcern": "Primary health concern",
+    "concernOptions": {
+      "placeholder": "Select…",
+      "weight": "Weight management",
+      "energy": "Energy & fatigue",
+      "stress": "Stress & mental health",
+      "heart": "Heart health",
+      "general": "General wellness"
+    },
+    "submit": "Get My Recommendations",
+    "errors": {
+      "age": "Please enter a valid age (1–120)",
+      "sex": "Please select your biological sex",
+      "heightCm": "Please enter a valid height (50–300 cm)",
+      "weightKg": "Please enter a valid weight (10–500 kg)",
+      "activityLevel": "Please select your activity level",
+      "sleepHours": "Please enter valid sleep hours (1–24)",
+      "primaryConcern": "Please select your primary health concern"
+    }
+  },
+  "profile": {
+    "tabDiagnostics": "Diagnostic Results",
+    "tabRecommendations": "Your Recommendations",
+    "diagnosticsTitle": "Diagnostic Results",
+    "summaryTitle": "Overall Health Summary",
+    "summaryP1": "Based on your responses, your cardiovascular system shows early signs of strain, likely related to elevated stress levels and a sedentary lifestyle. Your heart rate variability is within an acceptable range, but blood pressure indicators suggest it would be beneficial to monitor this area closely over the coming months.",
+    "summaryP2": "Your digestive system appears to be functioning adequately, though mild irregularities were noted. These are commonly associated with dietary habits and hydration levels. Increasing fiber intake and ensuring consistent meal times may help normalize digestive function.",
+    "summaryP3": "The musculoskeletal assessment points to reduced mobility in the lower back region, which is a frequent finding among individuals with desk-based occupations. Targeted stretching routines and ergonomic adjustments to your workspace are recommended as a first step.",
+    "summaryConclusion": "General conclusion:",
+    "summaryP4": "Overall, your health profile is moderate. No critical conditions were identified at this stage, but several preventive measures are strongly advised. Regular physical activity, balanced nutrition, adequate sleep, and routine check-ups will play a key role in maintaining and improving your wellbeing. Please review the personalized recommendations tab for a detailed action plan."
+  },
+  "recommendations": {
+    "title": "Your Recommendations",
+    "disclaimer": "Based on your survey responses. Always consult a qualified healthcare professional before making changes to your health routine.",
+    "retake": "Retake the survey",
+    "goToSurvey": "Go to Survey",
+    "noData": "Please complete the survey first.",
+    "invalidData": "Survey data is invalid. Please retake the survey.",
+    "priorityHigh": "High priority",
+    "priorityMedium": "Medium priority",
+    "priorityLow": "General",
+    "quitSmoking": {
+      "title": "Quit Smoking",
+      "body": "Smoking significantly increases the risk of heart disease, stroke, and cancer. Consider speaking with your doctor about cessation programs or nicotine replacement therapy."
+    },
+    "weightObese": {
+      "title": "Weight Management",
+      "body": "Your BMI is {{bmi}}, which falls in the obese range. A combination of balanced nutrition and regular physical activity can help you reach a healthier weight. Consult a dietitian for a personalized plan."
+    },
+    "weightOverweight": {
+      "title": "Healthy Weight Goal",
+      "body": "Your BMI is {{bmi}}, slightly above the healthy range. Small changes — like reducing processed foods and adding 20–30 minutes of daily walking — can make a meaningful difference."
+    },
+    "increaseActivity": {
+      "title": "Increase Physical Activity",
+      "body": "A sedentary lifestyle raises the risk of cardiovascular disease and metabolic disorders. Aim for at least 150 minutes of moderate activity per week — start with short daily walks and build gradually."
+    },
+    "sleepHygiene": {
+      "title": "Improve Sleep Hygiene",
+      "body": "Adults need 7–9 hours of sleep per night. Poor sleep is linked to weakened immunity, weight gain, and mood disorders. Try a consistent sleep schedule and limit screens before bed."
+    },
+    "stressManagement": {
+      "title": "Stress Management",
+      "body": "Chronic stress affects both mental and physical health. Techniques such as mindfulness, deep breathing, regular exercise, and adequate rest can significantly reduce stress levels."
+    },
+    "cardiovascularHealth": {
+      "title": "Cardiovascular Health",
+      "body": "For heart health, focus on a diet low in saturated fats and sodium, regular aerobic exercise, avoiding smoking, and monitoring blood pressure and cholesterol with your doctor."
+    },
+    "healthScreenings": {
+      "title": "Regular Health Screenings",
+      "body": "After age 50, routine screenings (blood pressure, cholesterol, colorectal cancer, bone density) become especially important. Schedule an annual check-up with your doctor."
+    },
+    "generalWellness": {
+      "title": "General Wellness",
+      "body": "Stay hydrated (8 glasses of water daily), eat a balanced diet rich in fruits and vegetables, maintain social connections, and schedule regular medical check-ups."
+    }
+  },
+  "login": {
+    "title": "Log in",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "loading": "Loading...",
+    "error": "Invalid email or password.",
+    "registered": "Account created. Please sign in.",
+    "or": "OR",
+    "google": "Sign in with Google",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up"
+  },
+  "register": {
+    "title": "Registration",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Create account",
+    "loading": "Creating account...",
+    "hasAccount": "Already have an account?",
+    "signIn": "Sign in"
+  },
+  "settings": {
+    "title": "Settings",
+    "account": "Account",
+    "logout": "Logout"
+  },
+  "about": {
+    "title": "About Health Advisor",
+    "whoWeAre": {
+      "title": "Who we are",
+      "body": "Health Advisor is a digital wellness tool that helps people understand their health risks and lifestyle habits. By completing a short survey, users receive evidence-based recommendations tailored to their individual profile."
+    },
+    "mission": {
+      "title": "Our mission",
+      "body": "To make personalised health guidance accessible to everyone. We believe that small, informed changes in daily habits can have a profound impact on long-term wellbeing. Our recommendations are grounded in current medical guidelines and are regularly reviewed by health professionals."
+    },
+    "team": {
+      "title": "The team"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "body": "Health Advisor provides general wellness information only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider with any questions about your health."
+    },
+    "contact": {
+      "title": "Contact",
+      "body": "Have questions or feedback?"
+    }
+  },
+  "tags": {
+    "urgent": "Urgent",
+    "attention": "Attention",
+    "stable": "Stable",
+    "monitor": "Monitor",
+    "consult": "Consult Doctor",
+    "lifestyle": "Lifestyle"
+  },
+  "organs": {
+    "knee": {
+      "title": "Knee",
+      "description": "Joint mobility and cartilage condition appear stable, synovial fluid levels are adequate, and no signs of wear or early degenerative changes have been observed in recent assessments.",
+      "items": [
+        "Moderate cartilage thinning detected in the right knee",
+        "Synovial fluid levels slightly below optimal range",
+        "Recommend low-impact exercise to preserve joint mobility",
+        "Follow-up imaging advised in 3 months"
+      ],
+      "tags": [
+        { "type": "attention", "label": "Attention" },
+        { "type": "monitor", "label": "Monitor" }
+      ]
+    },
+    "brain": {
+      "title": "Brain",
+      "description": "Cognitive function markers show no signs of concern, neural activity patterns are within expected ranges, and memory consolidation along with focus metrics remain consistently healthy.",
+      "items": [
+        "Elevated stress markers affecting prefrontal cortex activity",
+        "Sleep quality directly impacting memory consolidation",
+        "Recommend immediate neurologist consultation",
+        "Reduce screen time and prioritize deep sleep"
+      ],
+      "tags": [
+        { "type": "urgent", "label": "Urgent" },
+        { "type": "consult", "label": "Consult Doctor" }
+      ]
+    },
+    "bladder": {
+      "title": "Bladder",
+      "description": "Urinary tract function is operating as expected, bladder capacity and muscle tone are normal, and there are no indicators of infection or structural irregularities present.",
+      "items": [
+        "Bladder capacity within normal range",
+        "No signs of infection or inflammation",
+        "Maintain adequate daily fluid intake (2–2.5L)",
+        "Pelvic floor exercises recommended for long-term health"
+      ],
+      "tags": [
+        { "type": "stable", "label": "Stable" },
+        { "type": "lifestyle", "label": "Lifestyle" }
+      ]
+    },
+    "liver": {
+      "title": "Liver",
+      "description": "Liver enzyme levels are within the healthy reference range, detoxification processes are functioning optimally, and bile production supports healthy fat metabolism without any anomalies.",
+      "items": [
+        "ALT and AST enzyme levels significantly elevated",
+        "Reduced detoxification efficiency detected",
+        "Alcohol consumption must be stopped immediately",
+        "Blood panel retest required within 2 weeks"
+      ],
+      "tags": [
+        { "type": "urgent", "label": "Urgent" },
+        { "type": "attention", "label": "Attention" },
+        { "type": "consult", "label": "Consult Doctor" }
+      ]
+    },
+    "heart": {
+      "title": "Heart",
+      "description": "Cardiovascular indicators suggest good overall heart health, resting heart rate and rhythm are stable, and blood pressure readings remain consistently within the optimal range.",
+      "items": [
+        "Resting heart rate: 68 bpm — optimal",
+        "Blood pressure: 118/76 mmHg — within healthy range",
+        "Cardio training 3×/week recommended for maintenance",
+        "Continue current diet and stress management routine"
+      ],
+      "tags": [
+        { "type": "stable", "label": "Stable" },
+        { "type": "lifestyle", "label": "Lifestyle" }
+      ]
+    },
+    "intestines": {
+      "title": "Intestines",
+      "description": "Digestive system activity appears balanced and regular, microbiome diversity is at a healthy level, and nutrient absorption efficiency shows no signs of inflammation or obstruction.",
+      "items": [
+        "Significant reduction in microbiome diversity detected",
+        "Inflammatory markers elevated in the lower intestine",
+        "Increase dietary fiber and probiotic intake immediately",
+        "Colonoscopy screening recommended within 1 month"
+      ],
+      "tags": [
+        { "type": "urgent", "label": "Urgent" },
+        { "type": "monitor", "label": "Monitor" }
+      ]
+    },
+    "lungs": {
+      "title": "Lungs",
+      "description": "Respiratory capacity and oxygen exchange are functioning well, lung volume measurements are within normal parameters, and airway resistance shows no signs of chronic or acute issues.",
+      "items": [
+        "Lung capacity slightly reduced compared to last assessment",
+        "Mild airway sensitivity observed during high-intensity exercise",
+        "Avoid polluted environments and second-hand smoke",
+        "Breathing exercises (pranayama) may improve capacity"
+      ],
+      "tags": [
+        { "type": "attention", "label": "Attention" },
+        { "type": "lifestyle", "label": "Lifestyle" }
+      ]
+    },
+    "hemoglobin": {
+      "title": "Hemoglobin",
+      "description": "Blood hemoglobin levels are within the recommended range, red blood cell count is adequate for efficient oxygen transport, and iron saturation remains stable with no signs of anemia.",
+      "items": [
+        "Hemoglobin at lower boundary of the normal range",
+        "Iron saturation trending downward over past 2 months",
+        "Increase iron-rich foods: red meat, legumes, leafy greens",
+        "Consider iron supplementation after next blood test"
+      ],
+      "tags": [
+        { "type": "attention", "label": "Attention" },
+        { "type": "monitor", "label": "Monitor" },
+        { "type": "lifestyle", "label": "Lifestyle" }
+      ]
+    }
+  }
+}

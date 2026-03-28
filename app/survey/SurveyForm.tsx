@@ -4,6 +4,7 @@ import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { SurveyData } from "@/lib/recommendations";
 import Button from "@/components/Button";
+import type { Dictionary } from "@/app/[lang]/dictionaries";
 
 const inputClass = "w-full rounded border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-brand";
 const selectClass = inputClass;
@@ -21,7 +22,12 @@ const initialForm: SurveyData = {
   primaryConcern: "heart",
 };
 
-export default function SurveyPage() {
+interface SurveyFormProps {
+  dict: Dictionary["survey"];
+  lang: string;
+}
+
+export default function SurveyForm({ dict, lang }: SurveyFormProps) {
   const router = useRouter();
   const [form, setForm] = useState<SurveyData>(initialForm);
   const [errors, setErrors] = useState<Partial<Record<keyof SurveyData, string>>>({});
@@ -33,13 +39,13 @@ export default function SurveyPage() {
   function validate(): boolean {
     const next: Partial<Record<keyof SurveyData, string>> = {};
 
-    if (!form.age || form.age < 1 || form.age > 120) next.age = "Please enter a valid age (1–120)";
-    if (!form.sex) next.sex = "Please select your biological sex";
-    if (!form.heightCm || form.heightCm < 50 || form.heightCm > 300) next.heightCm = "Please enter a valid height (50–300 cm)";
-    if (!form.weightKg || form.weightKg < 10 || form.weightKg > 500) next.weightKg = "Please enter a valid weight (10–500 kg)";
-    if (!form.activityLevel) next.activityLevel = "Please select your activity level";
-    if (!form.sleepHours || form.sleepHours < 1 || form.sleepHours > 24) next.sleepHours = "Please enter valid sleep hours (1–24)";
-    if (!form.primaryConcern) next.primaryConcern = "Please select your primary health concern";
+    if (!form.age || form.age < 1 || form.age > 120) next.age = dict.errors.age;
+    if (!form.sex) next.sex = dict.errors.sex;
+    if (!form.heightCm || form.heightCm < 50 || form.heightCm > 300) next.heightCm = dict.errors.heightCm;
+    if (!form.weightKg || form.weightKg < 10 || form.weightKg > 500) next.weightKg = dict.errors.weightKg;
+    if (!form.activityLevel) next.activityLevel = dict.errors.activityLevel;
+    if (!form.sleepHours || form.sleepHours < 1 || form.sleepHours > 24) next.sleepHours = dict.errors.sleepHours;
+    if (!form.primaryConcern) next.primaryConcern = dict.errors.primaryConcern;
 
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -49,7 +55,7 @@ export default function SurveyPage() {
     e.preventDefault();
     if (!validate()) return;
     sessionStorage.setItem("healthSurveyData", JSON.stringify(form));
-    router.push("/profile");
+    router.push(`/${lang}/profile`);
   }
 
   return (
@@ -58,13 +64,11 @@ export default function SurveyPage() {
         onSubmit={handleSubmit}
         className="w-full max-w-lg space-y-5 rounded-xl border border-border bg-surface p-8"
       >
-        <h1 className="text-2xl font-semibold text-foreground">Health Survey</h1>
-        <p className="text-sm text-muted">
-          Fill in your details below to receive personalised health recommendations.
-        </p>
+        <h1 className="text-2xl font-semibold text-foreground">{dict.title}</h1>
+        <p className="text-sm text-muted">{dict.subtitle}</p>
 
         <div className="space-y-1">
-          <label htmlFor="age" className={labelClass}>Age</label>
+          <label htmlFor="age" className={labelClass}>{dict.age}</label>
           <input
             id="age"
             type="number"
@@ -76,23 +80,23 @@ export default function SurveyPage() {
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="sex" className={labelClass}>Biological sex</label>
+          <label htmlFor="sex" className={labelClass}>{dict.sex}</label>
           <select
             id="sex"
             value={form.sex}
             onChange={(e) => handleChange("sex", e.target.value)}
             className={selectClass}
           >
-            <option value="">Select…</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other / Prefer not to say</option>
+            <option value="">{dict.sexOptions.placeholder}</option>
+            <option value="male">{dict.sexOptions.male}</option>
+            <option value="female">{dict.sexOptions.female}</option>
+            <option value="other">{dict.sexOptions.other}</option>
           </select>
           {errors.sex && <p className={errorClass}>{errors.sex}</p>}
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="heightCm" className={labelClass}>Height (cm)</label>
+          <label htmlFor="heightCm" className={labelClass}>{dict.heightCm}</label>
           <input
             id="heightCm"
             type="number"
@@ -104,7 +108,7 @@ export default function SurveyPage() {
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="weightKg" className={labelClass}>Weight (kg)</label>
+          <label htmlFor="weightKg" className={labelClass}>{dict.weightKg}</label>
           <input
             id="weightKg"
             type="number"
@@ -116,37 +120,37 @@ export default function SurveyPage() {
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="activityLevel" className={labelClass}>Activity level</label>
+          <label htmlFor="activityLevel" className={labelClass}>{dict.activityLevel}</label>
           <select
             id="activityLevel"
             value={form.activityLevel}
             onChange={(e) => handleChange("activityLevel", e.target.value)}
             className={selectClass}
           >
-            <option value="">Select…</option>
-            <option value="sedentary">Sedentary (little or no exercise)</option>
-            <option value="light">Light (1–3 days/week)</option>
-            <option value="moderate">Moderate (3–5 days/week)</option>
-            <option value="active">Active (6–7 days/week)</option>
+            <option value="">{dict.activityOptions.placeholder}</option>
+            <option value="sedentary">{dict.activityOptions.sedentary}</option>
+            <option value="light">{dict.activityOptions.light}</option>
+            <option value="moderate">{dict.activityOptions.moderate}</option>
+            <option value="active">{dict.activityOptions.active}</option>
           </select>
           {errors.activityLevel && <p className={errorClass}>{errors.activityLevel}</p>}
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="smoking" className={labelClass}>Do you smoke?</label>
+          <label htmlFor="smoking" className={labelClass}>{dict.smoking}</label>
           <select
             id="smoking"
             value={form.smoking ? "yes" : "no"}
             onChange={(e) => handleChange("smoking", e.target.value === "yes")}
             className={selectClass}
           >
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
+            <option value="no">{dict.smokingOptions.no}</option>
+            <option value="yes">{dict.smokingOptions.yes}</option>
           </select>
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="sleepHours" className={labelClass}>Average sleep (hours/night)</label>
+          <label htmlFor="sleepHours" className={labelClass}>{dict.sleepHours}</label>
           <input
             id="sleepHours"
             type="number"
@@ -158,24 +162,24 @@ export default function SurveyPage() {
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="primaryConcern" className={labelClass}>Primary health concern</label>
+          <label htmlFor="primaryConcern" className={labelClass}>{dict.primaryConcern}</label>
           <select
             id="primaryConcern"
             value={form.primaryConcern}
             onChange={(e) => handleChange("primaryConcern", e.target.value)}
             className={selectClass}
           >
-            <option value="">Select…</option>
-            <option value="weight">Weight management</option>
-            <option value="energy">Energy & fatigue</option>
-            <option value="stress">Stress & mental health</option>
-            <option value="heart">Heart health</option>
-            <option value="general">General wellness</option>
+            <option value="">{dict.concernOptions.placeholder}</option>
+            <option value="weight">{dict.concernOptions.weight}</option>
+            <option value="energy">{dict.concernOptions.energy}</option>
+            <option value="stress">{dict.concernOptions.stress}</option>
+            <option value="heart">{dict.concernOptions.heart}</option>
+            <option value="general">{dict.concernOptions.general}</option>
           </select>
           {errors.primaryConcern && <p className={errorClass}>{errors.primaryConcern}</p>}
         </div>
 
-        <Button type="submit">Get My Recommendations</Button>
+        <Button type="submit">{dict.submit}</Button>
       </form>
     </main>
   );
