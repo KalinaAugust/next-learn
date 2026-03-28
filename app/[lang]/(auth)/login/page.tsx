@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { getDictionary, hasLocale, type Locale } from "../../dictionaries";
 import { notFound } from "next/navigation";
-import LoginForm from "@/app/(auth)/login/LoginForm";
+import LoginForm from "./LoginForm";
 
 export default async function LoginPage({
   params,

@@ -62,6 +62,7 @@
   "profile": {
     "tabDiagnostics": "Diagnostic Results",
     "tabRecommendations": "Your Recommendations",
+    "tabSummary": "Summary",
     "diagnosticsTitle": "Diagnostic Results",
     "summaryTitle": "Overall Health Summary",
     "summaryP1": "Based on your responses, your cardiovascular system shows early signs of strain, likely related to elevated stress levels and a sedentary lifestyle. Your heart rate variability is within an acceptable range, but blood pressure indicators suggest it would be beneficial to monitor this area closely over the coming months.",

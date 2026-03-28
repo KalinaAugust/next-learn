@@ -1,6 +1,6 @@
 import { getDictionary, hasLocale, type Locale } from "../dictionaries";
 import { notFound } from "next/navigation";
-import SettingsClient from "@/app/settings/SettingsClient";
+import SettingsClient from "./SettingsClient";
 
 export default async function SettingsPage({
   params,

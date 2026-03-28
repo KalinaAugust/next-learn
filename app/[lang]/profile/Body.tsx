@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import type { Organ } from "@/app/profile/organs";
-import { organPositions } from "@/app/profile/organPositions";
+import type { Organ } from "./organs";
+import { organPositions } from "./organPositions";
 
 const dotColors = {
   ok:       { ping: "bg-green-600",  dot: "bg-green-600" },

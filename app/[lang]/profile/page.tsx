@@ -1,7 +1,7 @@
 import { getDictionary, hasLocale, type Locale } from "../dictionaries";
 import { notFound } from "next/navigation";
-import { getOrgans } from "@/app/profile/organs";
-import ProfileClient from "@/app/profile/ProfileClient";
+import { getOrgans } from "./organs";
+import ProfileClient from "./ProfileClient";
 
 export default async function ProfilePage({
   params,

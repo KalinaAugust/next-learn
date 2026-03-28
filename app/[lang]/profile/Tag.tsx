@@ -1,4 +1,4 @@
-import type { Tag as TagType, TagType as TagTypeName } from "@/app/profile/organs";
+import type { Tag as TagType, TagType as TagTypeName } from "./organs";
 
 const tagConfig: Record<TagTypeName, { bg: string; text: string; icon: React.ReactNode }> = {
   urgent: {

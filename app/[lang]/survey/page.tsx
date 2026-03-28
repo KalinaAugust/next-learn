@@ -1,6 +1,6 @@
 import { getDictionary, hasLocale, type Locale } from "../dictionaries";
 import { notFound } from "next/navigation";
-import SurveyForm from "@/app/survey/SurveyForm";
+import SurveyForm from "./SurveyForm";
 
 export default async function SurveyPage({
   params,

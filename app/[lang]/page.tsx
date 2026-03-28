@@ -13,7 +13,7 @@ export default async function Home({
   const d = dict.home;
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-between font-sans bg-[url('/images/background.png')] bg-cover bg-center">
+    <div className="flex flex-col flex-1 items-center justify-between font-sans bg-[url('/images/background_2.jpg')] bg-cover bg-center">
       <div className="flex flex-1 items-center justify-center">
         <main className="flex flex-col items-center gap-8 py-16 px-16 text-center backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl shadow-xl">
           <h1 className="text-4xl font-semibold tracking-tight text-green-900 drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">

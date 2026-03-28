@@ -1,6 +1,6 @@
 import Image from "next/image";
-import type { Organ } from "@/app/profile/organs";
-import { Tag } from "@/app/profile/Tag";
+import type { Organ } from "./organs";
+import { Tag } from "./Tag";
 
 export const OrganItem = ({ organ, isOpen, onToggle }: { organ: Organ; isOpen: boolean; onToggle: () => void }) => {
   return (

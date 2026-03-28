@@ -1,6 +1,6 @@
 import { getDictionary, hasLocale, type Locale } from "../../dictionaries";
 import { notFound } from "next/navigation";
-import RegisterForm from "@/app/(auth)/register/RegisterForm";
+import RegisterForm from "./RegisterForm";
 
 export default async function RegisterPage({
   params,
