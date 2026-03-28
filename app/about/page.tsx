@@ -9,7 +9,7 @@ export default function About() {
         </h1>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-medium text-foreground">Who we are</h2>
+          <h2 className="mt-6 text-xl font-medium text-foreground">Who we are</h2>
           <p className="text-muted leading-7">
             Health Advisor is a digital wellness tool that helps people understand their health risks
             and lifestyle habits. By completing a short survey, users receive evidence-based
@@ -18,7 +18,7 @@ export default function About() {
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-medium text-foreground">Our mission</h2>
+          <h2 className="mt-6 text-xl font-medium text-foreground">Our mission</h2>
           <p className="text-muted leading-7">
             To make personalised health guidance accessible to everyone. We believe that small,
             informed changes in daily habits can have a profound impact on long-term wellbeing.
@@ -28,7 +28,7 @@ export default function About() {
         </section>
 
         <section className="flex flex-col gap-4">
-          <h2 className="text-xl font-medium text-foreground">The team</h2>
+          <h2 className="mt-6 text-xl font-medium text-foreground">The team</h2>
           <ul className="flex flex-col gap-4">
             {[
               { name: "Dr. Sanya Muha", role: "Drugs Reviewer", photo: "/images/team/member1.jpg" },
@@ -52,7 +52,7 @@ export default function About() {
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-medium text-foreground">Disclaimer</h2>
+          <h2 className="mt-6 text-xl font-medium text-foreground">Disclaimer</h2>
           <p className="text-muted leading-7">
             Health Advisor provides general wellness information only and is not a substitute for
             professional medical advice, diagnosis, or treatment. Always consult a qualified
@@ -61,7 +61,7 @@ export default function About() {
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-medium text-foreground">Contact</h2>
+          <h2 className="mt-6 text-xl font-medium text-foreground">Contact</h2>
           <p className="text-muted leading-7">
             Have questions or feedback?{" "}
             <a
