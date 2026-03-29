@@ -44,7 +44,7 @@ export async function proxy(request: NextRequest) {
   }
 
   if (authRoutes.some((r) => bare.startsWith(r)) && session) {
-    return NextResponse.redirect(new URL(`/${locale}`, request.url));
+    return NextResponse.redirect(new URL(`/${locale}/survey`, request.url));
   }
 
   return NextResponse.next();

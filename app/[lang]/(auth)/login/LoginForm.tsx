@@ -38,7 +38,7 @@ export default function LoginForm({ dict, lang }: LoginFormProps) {
       setPending(false);
     } else {
       router.refresh();
-      router.push(`/${lang}`);
+      router.push(`/${lang}/survey`);
     }
   }
 
@@ -84,7 +84,7 @@ export default function LoginForm({ dict, lang }: LoginFormProps) {
       <Button
         type="button"
         color="light"
-        onClick={() => signIn("google", { callbackUrl: `/${lang}` })}
+        onClick={() => signIn("google", { callbackUrl: `/${lang}/survey` })}
       >
         {dict.google}
       </Button>
