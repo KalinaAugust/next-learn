@@ -19,6 +19,18 @@ npm run lint     # eslint
 - **Tailwind CSS v4** (via `@tailwindcss/postcss`) — config-less, no `tailwind.config.js`
 - **TypeScript**
 
+
+## Next.js Version & Conventions
+
+- **Next.js 16** — using the latest version
+- `proxy.ts` (in root or `src/`) is the **active Next.js Proxy** (formerly middleware)
+- `middleware.ts` is deprecated and renamed to `proxy.ts` starting from Next.js 16
+- Function is named `proxy` (not `middleware`): `export function proxy(request: NextRequest)`
+- "Middleware manifest is empty" error is **expected** — manifest is generated for the old name
+- Do NOT rename `proxy.ts` back to `middleware.ts` — that is a regression
+- Do NOT look for a `middleware-manifest.json` entry for `proxy.ts` — the architecture has changed
+- `config.matcher` export remains the same — do not change it
+
 ## Architecture
 
 **Styling:** Tailwind utility classes only, dark mode via `dark:` variants. No CSS modules or styled-components.
