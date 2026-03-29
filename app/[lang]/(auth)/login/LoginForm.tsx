@@ -7,7 +7,7 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 
-const inputClass = "w-full rounded border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-brand";
+const inputClass = "w-full rounded border border-white/30 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-white/60";
 
 interface LoginFormProps {
   dict: Dictionary["login"];
@@ -57,11 +57,11 @@ export default function LoginForm({ dict, lang }: LoginFormProps) {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-1">
-          <label htmlFor="email" className="block text-sm font-medium text-foreground">{dict.email}</label>
+          <label htmlFor="email" className="block text-sm font-medium text-white/80">{dict.email}</label>
           <input id="email" name="email" type="email" className={inputClass} required />
         </div>
         <div className="space-y-1">
-          <label htmlFor="password" className="block text-sm font-medium text-foreground">{dict.password}</label>
+          <label htmlFor="password" className="block text-sm font-medium text-white/80">{dict.password}</label>
           <input
             id="password"
             name="password"
@@ -70,30 +70,30 @@ export default function LoginForm({ dict, lang }: LoginFormProps) {
             required
           />
         </div>
-        <Button type="submit" disabled={pending}>
+        <Button type="submit" color="green" disabled={pending}>
           {pending ? dict.loading : dict.submit}
         </Button>
       </form>
 
       <div className="relative flex items-center gap-3 py-1">
-        <div className="flex-1 border-t border-border" />
-        <span className="text-xs text-subtle">{dict.or}</span>
-        <div className="flex-1 border-t border-border" />
+        <div className="flex-1 border-t border-white/20" />
+        <span className="text-xs text-white/50">{dict.or}</span>
+        <div className="flex-1 border-t border-white/20" />
       </div>
 
       <Button
         type="button"
-        color="light"
+        color="glass"
         onClick={() => signIn("google", { callbackUrl: `/${lang}/survey` })}
       >
         {dict.google}
       </Button>
 
-      <p className="text-center text-sm text-muted">
+      <p className="text-center text-sm text-white/60">
         {dict.noAccount}&nbsp;
         <Link
           href={`/${lang}/register`}
-          className="text-foreground underline underline-offset-4"
+          className="text-white underline underline-offset-4"
         >
           {dict.signUp}
         </Link>

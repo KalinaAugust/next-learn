@@ -24,6 +24,7 @@ export default function Header({ dict, lang }: HeaderProps) {
   const { data: session } = useSession();
 
   const isHome = pathname === `/${lang}` || pathname === `/${lang}/`;
+  const isDark = isHome || pathname === `/${lang}/login` || pathname === `/${lang}/register`;
 
   const links = [
     { href: `/${lang}/survey`, label: dict.survey, icon: <MdAssignment size={18} /> },
@@ -35,9 +36,9 @@ export default function Header({ dict, lang }: HeaderProps) {
   const switcherHref = pathname.replace(new RegExp(`^/${lang}`), `/${otherLang}`) || `/${otherLang}`;
 
   return (
-    <header className={`px-6 py-4 ${isHome ? "bg-black/40 backdrop-blur-md border-b border-white/20" : "border-b border-border bg-background"}`}>
+    <header className={`px-6 py-4 ${isDark ? "bg-black/40 backdrop-blur-md border-b border-white/20" : "border-b border-border bg-background"}`}>
       <nav aria-label="Main navigation" className="flex items-center gap-6">
-        <Link href={`/${lang}`} aria-label={dict.homeAriaLabel} className={`flex items-center gap-2 hover:opacity-80 transition-opacity ${isHome ? "text-white" : "text-foreground"}`}>
+        <Link href={`/${lang}`} aria-label={dict.homeAriaLabel} className={`flex items-center gap-2 hover:opacity-80 transition-opacity ${isDark ? "text-white" : "text-foreground"}`}>
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="14" cy="14" r="13" stroke="currentColor" strokeWidth="1.5" />
             <path d="M14 7c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7z" fill="currentColor" fillOpacity="0.12" />
@@ -56,8 +57,8 @@ export default function Header({ dict, lang }: HeaderProps) {
               href={href}
               className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
                 pathname === href
-                  ? `${isHome ? "text-white" : "text-foreground"} underline underline-offset-4`
-                  : isHome ? "text-white/60 hover:text-white" : "text-subtle hover:text-foreground"
+                  ? `${isDark ? "text-white" : "text-foreground"} underline underline-offset-4`
+                  : isDark ? "text-white/60 hover:text-white" : "text-subtle hover:text-foreground"
               }`}
             >
               {icon}
@@ -70,7 +71,7 @@ export default function Header({ dict, lang }: HeaderProps) {
             <>
               <Link
                 href={`/${lang}/profile`}
-                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${pathname === `/${lang}/profile` ? `${isHome ? "text-white" : "text-foreground"} underline underline-offset-4` : isHome ? "text-white/60 hover:text-white" : "text-subtle hover:text-foreground"}`}
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${pathname === `/${lang}/profile` ? `${isDark ? "text-white" : "text-foreground"} underline underline-offset-4` : isDark ? "text-white/60 hover:text-white" : "text-subtle hover:text-foreground"}`}
               >
                 <MdPerson size={18} />
                 {dict.profile}
@@ -78,7 +79,7 @@ export default function Header({ dict, lang }: HeaderProps) {
               <Link
                 href={`/${lang}/settings`}
                 aria-label="Settings"
-                className={`transition-colors ${pathname === `/${lang}/settings` ? isHome ? "text-white" : "text-foreground" : isHome ? "text-white/60 hover:text-white" : "text-subtle hover:text-foreground"}`}
+                className={`transition-colors ${pathname === `/${lang}/settings` ? isDark ? "text-white" : "text-foreground" : isDark ? "text-white/60 hover:text-white" : "text-subtle hover:text-foreground"}`}
               >
                 <MdSettings size={20} />
               </Link>
@@ -86,7 +87,7 @@ export default function Header({ dict, lang }: HeaderProps) {
           ) : (
             <Link
               href={`/${lang}/login`}
-              className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${isHome ? "text-white/60 hover:text-white" : "text-subtle hover:text-foreground"}`}
+              className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${isDark ? "text-white/60 hover:text-white" : "text-subtle hover:text-foreground"}`}
             >
               <MdLogin size={18} />
               {dict.login}
@@ -95,7 +96,7 @@ export default function Header({ dict, lang }: HeaderProps) {
 
           <Link
             href={switcherHref}
-            className={`text-xs font-semibold uppercase tracking-widest transition-colors border rounded px-2 py-1 ${isHome ? "border-white/30 text-white/60 hover:text-white" : "border-border text-subtle hover:text-foreground"}`}
+            className={`text-xs font-semibold uppercase tracking-widest transition-colors border rounded px-2 py-1 ${isDark ? "border-white/30 text-white/60 hover:text-white" : "border-border text-subtle hover:text-foreground"}`}
           >
             {otherLang}
           </Link>
